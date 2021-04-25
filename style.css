@@ -1,0 +1,156 @@
+
+
+
+html{
+    box-sizing: border-box;
+    
+}
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+
+.header{
+    color: black;
+    text-align: center;
+}
+
+main{    
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+
+
+.card{
+    margin: 0 auto;
+    background-color: rgb(252, 15, 15);
+    width: 250px;
+    border-radius: 15px;
+    border: 1px solid white;
+    padding-top: 5px;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-out;
+}
+.card:hover{
+    transform: scale(1.02);
+    
+}
+
+
+.screen {
+    background-color: black;
+    border-radius: 20px;
+    width: 200px;
+    height: 140px;
+    margin: 5px auto 0 auto;
+    border: 0.1px solid white;
+    border-radius: 5px;
+    margin-bottom: 2px;
+}
+
+.display-screen {
+    background-color: black;
+    width: 50%;
+    margin: 18px auto;
+    height: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.card-title{
+    color:yellow;
+    background-color: black;
+    margin: 0;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 12px;
+
+    
+}
+.show-pokemon{
+    background-color: white;
+
+}
+img{
+    background-color:white;
+    flex-grow: 1;
+    width: 100%;
+    height: 80%;    
+    border: 1px solid black;
+}
+img:hover{
+    transform: scale(1.35);
+}
+
+.button-row{
+    display: flex;
+}
+
+.dexButtonG{
+    background-color: green;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 0.8px solid white;
+    margin: 0;
+    margin-left: 25px;
+    margin-right: 4px;   
+}
+
+
+.dexButtonY{
+    background-color: yellow;    
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 0.8px solid white;
+    margin: 0;
+    margin-right: 4px;
+}
+
+.dexButtonB{
+    background-color: blue;    
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 0.8px solid white;
+    padding: 0;
+    margin:0;   
+}
+
+.card-text {
+    word-wrap: break-word;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;    
+}
+
+
+.box {
+    font-size: 8px;
+    font-family: "Pokemon GB", Arial, sans-serif;
+    border-radius: 2px;
+    padding: 8px;
+    width: 80%;
+    height: auto;
+    line-height: 16px;
+    margin: auto;
+    margin-bottom: 20px;
+    background: white;
+    border: 1px solid white;
+    box-shadow: 0 1px 0 1px black,
+                inset 0 1px 0 1px black,
+                0 0 0 1px black,
+                inset 0 0 0 1px black;
+    
+
+  }
+
+.hide{
+    display: none;
+}

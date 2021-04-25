@@ -1,0 +1,100 @@
+    <!-- <div class="card">
+        <div class="button-row">
+            <div class="dexButtonG row"></div>
+            <div class="dexButtonY row"></div>
+            <div class="dexButtonB row"></div>
+        </div>
+        <div class="screen">
+            <div class="display-screen">
+                <div class="show-pokemon"></div>
+                <img
+                    src="https://c3.klipartz.com/pngpicture/936/522/sticker-png-mewtwo-sprite-pokemon-mewtwo-illustration.png" />
+                <h5 class="card-title">#150 Mewtwo</h5>
+            </div>
+        </div>
+        <div class="card-body box">
+            It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.
+        </div>
+    </div>
+
+
+
+    <div class="card">
+        <div class="button-row">
+            <div class="dexButtonG row"></div>
+            <div class="dexButtonY row"></div>
+            <div class="dexButtonB row"></div>
+        </div>
+        <div class="screen">
+            <div class="display-screen">
+                <div class="show-pokemon"></div>
+                <img
+                    src="" />
+                <h5 class="card-title"></h5>
+            </div>
+        </div>
+        <div class="card-body box">           
+        </div>
+    </div>
+
+    
+    <div class="card">
+        <div class="button-row">
+            <div class="dexButtonG row"></div>
+            <div class="dexButtonY row"></div>
+            <div class="dexButtonB row"></div>
+        </div>
+        <div class="screen">
+            <div class="display-screen">
+                <div class="show-pokemon"></div>
+                <img
+                    src="https://www.pngitem.com/pimgs/m/402-4024360_transparent-charizard-charizard-sprite-pokemon-gold-hd-png.png" />
+                <h5 class="card-title">#6 Charizard</h5>
+            </div>
+        </div>
+        <div class="card-body box">
+            Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally.
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+    //async trycatch
+
+async function loadPokemon(url) {
+  try {
+    let res = await fetch(url),
+      json = await res.json();
+
+    if (!res.ok) throw { status: res.status, statusText: res.statusText };
+    for (let i = 0; i < json.results.length; i++) {
+      try {
+        let res = await fetch(json.results[i].url),
+          pokemonJson = await res.json();
+        //   console.log(pokemonJson.id);
+
+        if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+        $template.querySelector("img").src = pokemonJson.sprites.front_default;
+        $template.querySelector("img").alt = pokemonJson.name;
+        $template.querySelector("figcaption").innerHTML = "#" + pokemonJson.id +" " + pokemonJson.name;
+
+        let $clone = d.importNode($template,true);
+        $fragment.appendChild($clone)
+
+      } catch (err) {};
+    }
+    $main.appendChild($fragment);
+    
+  } catch (err) {
+    console.log(err);
+    let message = err.statusText || "Ocurrio un error";
+    $main.innerHTML = `<p>Error ${err.status} : ${message}`;
+  }
+}
